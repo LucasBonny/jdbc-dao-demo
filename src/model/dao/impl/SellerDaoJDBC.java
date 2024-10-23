@@ -77,7 +77,9 @@ public class SellerDaoJDBC implements SellerDao {
 		catch(SQLException e) {
 			System.out.println(e.getMessage());
 		}
-		
+		finally {
+			DB.closeStatement(st);
+		}
 
 	}
 
@@ -92,6 +94,9 @@ public class SellerDaoJDBC implements SellerDao {
 		}
 		catch(SQLException e) {
 			throw new DbException(e.getMessage());
+		}
+		finally {
+			DB.closeStatement(st);
 		}
 
 	}
