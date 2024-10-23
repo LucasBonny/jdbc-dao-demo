@@ -89,8 +89,12 @@ public class SellerDaoJDBC implements SellerDao {
 		try {
 			st = conn.prepareStatement("DELETE FROM seller WHERE Id = ?");
 			st.setInt(1, id);
-			st.executeUpdate();
-			System.out.println("Id " + id + " removido!");
+			int rowsAffeted = st.executeUpdate();
+			
+			if(rowsAffeted > 0) {
+				System.out.println("Id " + id + " removido!");
+			}
+			else throw new DbException("Não houve alteração no banco de dados!");
 		}
 		catch(SQLException e) {
 			throw new DbException(e.getMessage());
