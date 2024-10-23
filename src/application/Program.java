@@ -45,10 +45,8 @@ public class Program {
 		
 
 		System.out.println("==== TEST 6: seller delete ====");
-		for(int i = 9; i <= 16; i++) {
-			sellerDao.deleteById(i);
-			System.out.println("Id " + i + " removido!");
-		}
+		sellerDao.deleteById(17);
+		sellerDao.deleteById(18);
 	}
 
 }
